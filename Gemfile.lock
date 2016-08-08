@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    ons-jwe (0.0.0)
-      json-jwt (~> 1, >= 1.6.3)
+    ons-jwe (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -50,6 +49,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  json-jwt (~> 1, >= 1.6.3)
   ons-jwe!
   rake (~> 11, >= 11.1.2)
   rubocop (~> 0, >= 0.42.0)
