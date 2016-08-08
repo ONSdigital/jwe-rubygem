@@ -1,5 +1,6 @@
 # ONS JSON Web Token RubyGem
 [RFC 7516](https://tools.ietf.org/html/rfc7516)-compliant JSON Web Encryption (JWE) token generator that uses RSAES-OAEP and AES GCM. Suitable for use with the [ONS eQ Survey Runner](https://github.com/ONSdigital/eq-survey-runner). Note that this gem targets Ruby 2.3 and above.
+[![Build Status](https://travis-ci.org/ONSdigital/jwe-rubygem.svg?branch=master)](https://travis-ci.org/ONSdigital/jwe-rubygem)
 
 ## Installation
 
