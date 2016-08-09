@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.license     = 'Crown Copyright (Office for National Statistics)'
 
   s.add_runtime_dependency 'json-jwt', '~>1', '>= 1.6.3'
+  s.add_development_dependency 'bundler', '~>1', '>=1.12.5'
   s.add_development_dependency 'rake', '~>11', '>=11.1.2'
   s.add_development_dependency 'rubocop', '~>0', '>=0.42.0'
   s.add_development_dependency 'test-unit', '~>3', '>=3.1.9'

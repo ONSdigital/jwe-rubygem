@@ -50,6 +50,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1, >= 1.12.5)
   ons-jwe!
   rake (~> 11, >= 11.1.2)
   rubocop (~> 0, >= 0.42.0)
