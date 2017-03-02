@@ -5,9 +5,8 @@ require 'json/jwt'
 class JWEToken
   attr_reader :value
 
-  def initialize(key_id, transaction_id, claims, public_key, private_key)
+  def initialize(key_id, claims, public_key, private_key)
     validate_key_id(key_id)
-    validate_transaction_id(transaction_id)
     validate_claims(claims)
     validate_public_key(public_key)
     validate_private_key(private_key)
@@ -61,10 +60,5 @@ class JWEToken
     unless key.instance_of? OpenSSL::PKey::RSA
       raise ArgumentError, "#{key_type} must be an RSA key"
     end
-  end
-
-  def validate_transaction_id(transaction_id)
-    raise ArgumentError, 'transaction_id must be specified' if transaction_id.nil? ||
-                                                               transaction_id.empty?
   end
 end

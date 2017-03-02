@@ -6,7 +6,6 @@ require_relative '../lib/ons-jwe/jwe_token'
 
 class JWETokenTest < Test::Unit::TestCase
   KEY_ID           = 'TestKey'
-  TRANSACTION_ID   = '268e1139-4361-4f21-b53c-d2deb1f6ee19'
   VALID_JWE_HEADER = 'eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ'
 
   # rubocop:disable Style/MutableConstant
@@ -22,76 +21,62 @@ class JWETokenTest < Test::Unit::TestCase
   end
 
   def test_token_has_valid_header
-    token = JWEToken.new(KEY_ID, TRANSACTION_ID, CLAIMS, @public_key, @private_key)
+    token = JWEToken.new(KEY_ID, CLAIMS, @public_key, @private_key)
     assert_equal VALID_JWE_HEADER, extract_header(token.value)
   end
 
   def test_empty_claims_raises_argument_error
     exception = assert_raise ArgumentError do
-      JWEToken.new(KEY_ID, TRANSACTION_ID, {}, @public_key, @private_key)
+      JWEToken.new(KEY_ID, {}, @public_key, @private_key)
     end
     assert_equal 'claims must be specified', exception.message
   end
 
   def test_empty_key_id_raises_argument_error
     exception = assert_raise ArgumentError do
-      JWEToken.new('', TRANSACTION_ID, CLAIMS, @public_key, @private_key)
+      JWEToken.new('', CLAIMS, @public_key, @private_key)
     end
     assert_equal 'key_id must be specified', exception.message
   end
 
-  def test_empty_transaction_id_raises_argument_error
-    exception = assert_raise ArgumentError do
-      JWEToken.new(KEY_ID, '', CLAIMS, @public_key, @private_key)
-    end
-    assert_equal 'transaction_id must be specified', exception.message
-  end
-
   def test_nil_claims_raises_argument_error
     exception = assert_raise ArgumentError do
-      JWEToken.new(KEY_ID, TRANSACTION_ID, nil, @public_key, @private_key)
+      JWEToken.new(KEY_ID, nil, @public_key, @private_key)
     end
     assert_equal 'claims must be specified', exception.message
   end
 
   def test_nil_key_id_raises_argument_error
     exception = assert_raise ArgumentError do
-      JWEToken.new(nil, TRANSACTION_ID, CLAIMS, @public_key, @private_key)
+      JWEToken.new(nil, CLAIMS, @public_key, @private_key)
     end
     assert_equal 'key_id must be specified', exception.message
   end
 
   def test_nil_private_key_raises_argument_error
     exception = assert_raise ArgumentError do
-      JWEToken.new(KEY_ID, TRANSACTION_ID, CLAIMS, @public_key, nil)
+      JWEToken.new(KEY_ID, CLAIMS, @public_key, nil)
     end
     assert_equal 'private_key must be specified', exception.message
   end
 
   def test_nil_public_key_raises_argument_error
     exception = assert_raise ArgumentError do
-      JWEToken.new(KEY_ID, TRANSACTION_ID, CLAIMS, nil, @private_key)
+      JWEToken.new(KEY_ID, CLAIMS, nil, @private_key)
     end
     assert_equal 'public_key must be specified', exception.message
   end
 
-  def test_nil_transaction_id_raises_argument_error
-    exception = assert_raise ArgumentError do
-      JWEToken.new(KEY_ID, nil, CLAIMS, @public_key, @private_key)
-    end
-    assert_equal 'transaction_id must be specified', exception.message
-  end
-
   def test_non_rsa_private_key_raises_argument_error
     exception = assert_raise ArgumentError do
-      JWEToken.new(KEY_ID, TRANSACTION_ID, CLAIMS, @public_key, 'not an RSA key')
+      JWEToken.new(KEY_ID, CLAIMS, @public_key, 'not an RSA key')
     end
     assert_equal 'private_key must be an RSA key', exception.message
   end
 
   def test_non_rsa_public_key_raises_argument_error
     exception = assert_raise ArgumentError do
-      JWEToken.new(KEY_ID, TRANSACTION_ID, CLAIMS, 'not an RSA key', @private_key)
+      JWEToken.new(KEY_ID, CLAIMS, 'not an RSA key', @private_key)
     end
     assert_equal 'public_key must be an RSA key', exception.message
   end
