@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'date'
 require_relative 'lib/ons-jwe/version'
 
 Gem::Specification.new do |s|
