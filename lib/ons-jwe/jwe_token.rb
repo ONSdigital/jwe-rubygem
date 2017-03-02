@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'securerandom'
 require 'json/jwt'
 
 # This class generates JSON Web Encryption (JWE) tokens as per RFC 7516.
@@ -29,6 +30,7 @@ class JWEToken
     jwt = JSON::JWT.new(claims)
     jwt.kid = key_id
     jwt.alg = :RS256
+    jwt.header[:jti] = SecureRandom.uuid
     jwt
   end
 
