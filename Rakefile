@@ -1,5 +1,6 @@
 #!/usr/bin/env rake
 # frozen_string_literal: true
+
 require 'rake/testtask'
 require_relative 'lib/ons-jwe/version'
 

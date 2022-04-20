@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'json/jwt'
 
 # This class generates JSON Web Encryption (JWE) tokens as per RFC 7516.
@@ -48,17 +49,17 @@ class JWEToken
 
   def validate_private_key(private_key)
     raise ArgumentError, 'private_key must be specified' if private_key.nil?
+
     validate_rsa_key(private_key, 'private_key')
   end
 
   def validate_public_key(public_key)
     raise ArgumentError, 'public_key must be specified' if public_key.nil?
+
     validate_rsa_key(public_key, 'public_key')
   end
 
   def validate_rsa_key(key, key_type)
-    unless key.instance_of? OpenSSL::PKey::RSA
-      raise ArgumentError, "#{key_type} must be an RSA key"
-    end
+    raise ArgumentError, "#{key_type} must be an RSA key" unless key.instance_of? OpenSSL::PKey::RSA
   end
 end
