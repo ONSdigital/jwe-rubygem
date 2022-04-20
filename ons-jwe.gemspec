@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+require 'date'
+
 require_relative 'lib/ons-jwe/version'
 
 Gem::Specification.new do |s|
@@ -17,9 +20,9 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/ONSdigital/jwe-rubygem'
   s.license     = 'Crown Copyright (Office for National Statistics)'
 
-  s.add_runtime_dependency 'json-jwt', '~>1', '>= 1.6.3'
-  s.add_development_dependency 'bundler', '~>1', '>=1.12.5'
-  s.add_development_dependency 'rake', '>=11.1.2', '~>13'
-  s.add_development_dependency 'rubocop', '>=0.42.0', '~>1'
-  s.add_development_dependency 'test-unit', '~>3', '>=3.1.9'
+  s.add_runtime_dependency 'json-jwt'
+  s.add_development_dependency 'bundler'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'test-unit'
 end

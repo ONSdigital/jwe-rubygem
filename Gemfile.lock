@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     ons-jwe (1.0.0)
-      json-jwt (~> 1, >= 1.6.3)
+      json-jwt
 
 GEM
   remote: https://rubygems.org/
@@ -26,7 +26,7 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
-    power_assert (0.3.0)
+    power_assert (2.0.1)
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.3.0)
@@ -43,21 +43,21 @@ GEM
     rubocop-ast (1.17.0)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
-    test-unit (3.2.1)
+    test-unit (3.5.3)
       power_assert
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-20
 
 DEPENDENCIES
-  bundler (~> 1, >= 1.12.5)
+  bundler
   ons-jwe!
-  rake (~> 13, >= 11.1.2)
-  rubocop (~> 1, >= 0.42.0)
-  test-unit (~> 3, >= 3.1.9)
+  rake
+  rubocop
+  test-unit
 
 BUNDLED WITH
-   1.12.5
+   2.3.3
