@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 3.1
 
 # Using the usual snake_case for the filename below prevents the gem from loading.
 Style/FileName:
